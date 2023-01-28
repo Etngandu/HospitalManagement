@@ -1,0 +1,48 @@
+﻿@model ENBHospitalmanagementMvc.Mvc.Models.DisplayWard
+
+@{
+    ViewBag.Title = "Delete";
+   // Layout = "~/Views/Shared/_LayoutPatient.cshtml";
+}
+
+<div class="alert alert-danger" role="alert">
+    <h2><strong>Are You Sure to Delete this Record?</strong></h2>
+</div>
+
+
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Ward_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ward_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ward_Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ward_Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ward_description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ward_description)
+        </dd>
+
+    </dl>
+</div>
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <input type="button" value="Delete" onclick="location.href='@Url.Action("Delete", "Ward")'" class="btn btn-primary" />
+        <input type="reset" value="Reset" class="btn btn-warning" />
+    </div>
+</div>
+

@@ -1,0 +1,188 @@
+﻿@using HospitalManagement.Entities;
+@model ENBHospitalmanagementMvc.Models.DisplayDrug
+@{
+    ViewBag.Title = "Ward List";
+    Layout = "~/Views/Shared/_LayoutPatient.cshtml";
+
+}
+
+
+<div class="alert alert-info" role="alert">
+    <h2><strong>Drug Crud Operations</strong></h2>
+</div>
+
+<a class="btn btn-success" style="margin-bottom:10px" onclick="PopupForm('@Url.Action("Create","Drug")')"><i class="fa fa-plus"></i> New Drug</a>
+<table id="drugtable" class="table table-striped table-bordered" width="100%">
+    <thead>
+        <tr>
+            <th>Drug_name</th>
+            <th>Ref_Drug_Category</th>
+            <th>Drug_Description</th>
+            <th>Drug_cost</th>
+            <th>Drug_Cost_unit</th>
+            <th> </th>
+        </tr>
+    </thead>
+</table>
+<link href="//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
+@*<link href="~/Content/DataTables/css/dataTables.bootstrap4.min.css" rel="stylesheet" />*@
+<link href="~/Content/FontAwesome/css/font-awesome.min.css" rel="stylesheet" />
+
+@section scripts{
+    <script type="text/javascript" charset="utf8" src="~/Content/DataTables/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="~/Content/DataTables/js/dataTables.bootstrap.min.js"></script>
+    <script>
+        var Popup, datatable
+        $(document).ready(function () {
+            datatable = $("#drugtable").DataTable({
+                "ajax": {
+                    "url": "/Drug/GetData",
+                    "type": "GET",
+                    "datatype": "json"
+                },
+                "columns": [
+                    
+                    { "data": "Drug_name" },
+                    {
+                        "data": "Ref_Drug_Category",
+                        "render": Refdrugparse
+                    },
+                    { "data": "Drug_Description" },
+                    { "data": "Drug_cost" },
+                    { "data": "Drug_Cost_unit" },
+                    {
+                        "data": "Id", "render": function (data) {
+                            return "<a class= 'btn btn-default btn-sm' onclick=PopupForm('@Url.Action("Edit","Drug")/" + data + "')><i class='fa fa-pencil'></i> Edit</a><a class= 'btn btn-danger btn-sm' style='margin-left:5px' onclick=Delete(" + data + ")><i class='fa fa-trash'></i> Delete</a> ";
+                        },
+                        "orderable": false,
+                        "searchable": false,
+                        "width": "200px"
+                    }
+
+                ],
+                "language": {
+
+                    "emptyTable": "No data Found, Please Click On <b>Add New</b> Button"
+                }
+
+            });
+
+        });
+
+        function PopupForm(url) {
+            var formdiv = $('<div/>')
+            $.get(url)
+                .done(function (response) {
+                    formdiv.html(response);
+
+                    Popup = formdiv.dialog({
+
+                        autoOpen: true,
+                        resizable: false,
+                        title: 'Fill Drug details',
+                        height: 600,
+                        width: 1000,
+                        close: function () {
+
+                            Popup.dialog('destroy').remove();
+                        }
+
+
+                    })
+
+                })
+        }
+
+        function SubmitForm(form) {
+
+            $.validator.unobtrusive.parse(form);
+            if ($(form).valid()) {
+                $.ajax({
+                    type: 'POST',
+                    url: form.action,
+                    data: $(form).serialize(),
+                    success: function (data) {
+                        if (data.success) {
+                            Popup.dialog('close');
+                            datatable.ajax.reload();
+
+                            $.notify(data.message, {
+                                globalPosition: "top center",
+                                className: "success"
+                            })
+
+                        }
+                    }
+
+                });
+            }
+            return false;
+        }
+
+        function Delete(id) {
+            if (confirm('Are You Sure to Delete this Record'))
+            {
+
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("Delete","Ward")/'+ id,
+                    success: function (data) {
+                        if (data.success) {
+                            datatable.ajax.reload();
+
+                            $.notify(data.message, {
+                                globalposition: "top center",
+                                className: "success"
+                            })
+                        }
+                    }
+
+                });
+
+            }
+
+
+        }
+
+        function Refdrugparse(data) {
+            var drugpr;
+            switch (data) {
+                case 1:
+                    drugpr = "Analgesics"
+                    break;
+                case 2:
+                    drugpr = "Anesthetics"
+                    break;
+                case 3:
+                    drugpr = "Antibacterials"
+                    break;
+                case 4:
+                    drugpr = "Anticonvulsants"
+                    break;
+                case 5:
+                    drugpr = "Antidementia"
+                    break;
+                case 6:
+                    drugpr = "Antidepressants"
+                    break;
+                case 7:
+                    drugpr = "Antidotes_and_antitoxins"
+                    break;
+                case 8:
+                    drugpr = "Antiemetics"
+                    break;
+                case 9:
+                    drugpr = "Antifungals"
+                    break;
+                case 10:
+                    drugpr = "Antimycobacterials"
+                    break;                
+                default:
+                // code block
+            }
+            return drugpr;
+        }
+
+    </script>
+
+}

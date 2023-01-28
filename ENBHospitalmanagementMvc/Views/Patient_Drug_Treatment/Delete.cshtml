@@ -1,0 +1,84 @@
+﻿@model ENBHospitalmanagementMvc.Models.DisplayPatient_Drug_Treatment
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutPatient.cshtml";
+}
+
+<div class="alert alert-danger" role="alert">
+    <h2><strong>Do you really want to delete this</strong></h2>
+</div>
+
+
+@using (Html.BeginForm("Delete", "Patient_Drug_Treatment", FormMethod.Post, new { onsubmit = "return SubmitForm(this);" }))
+{
+    @Html.Hidden("patient_Id",Model.PatientId)
+    @Html.Hidden("diag_Id",Model.DiagnoseId)
+    @Html.HiddenFor(model => model.Id)
+    <div>
+
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.PatientId)
+            </dt>
+
+            <dd>
+                @ViewBag.Message  @*@Html.DisplayFor(model => model.PatientId)*@
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DiagnoseId)
+            </dt>
+
+            <dd>
+                @ViewBag.Diagnose  @*@Html.DisplayFor(model => model.DiagnoseId)*@
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DrugId)
+            </dt>
+
+            <dd>
+                @ViewBag.Drug  @*@Html.DisplayFor(model => model.DrugId)*@
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DateCreated)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DateCreated)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DateModified)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DateModified)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Dosage_administred)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Dosage_administred)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Comments)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Comments)
+            </dd>
+
+        </dl>
+    </div>
+    <div class="form-group">
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" />
+        </div>
+    </div>
+}

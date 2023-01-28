@@ -1,0 +1,69 @@
+﻿@model ENBHospitalmanagementMvc.Models.DisplayDiagnose
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutPatient.cshtml";
+}
+
+<div class="alert alert-danger" role="alert">
+    <h2><strong>Do you really want to delete this</strong></h2>
+</div>
+
+
+@using (Html.BeginForm("Delete", "Diagnose", FormMethod.Post, new { onsubmit = "return SubmitForm(this);" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.Patient_Id)
+    @Html.HiddenFor(model => model.Id)
+    <div>
+
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Patient_Id)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Patient_Id)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Staff_Id)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Staff_Id)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Diagnose_details)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Diagnose_details)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DateCreated)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DateCreated)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DateModified)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DateModified)
+            </dd>
+
+        </dl>
+    </div>
+    <div class="form-group">       
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" />
+        </div>
+    </div>
+}

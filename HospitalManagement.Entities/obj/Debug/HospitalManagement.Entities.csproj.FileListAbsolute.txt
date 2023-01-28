@@ -1,0 +1,9 @@
+D:\Devsource\ENBH.HospitalManagement\HospitalManagement.Entities\obj\Debug\HospitalManagement.Entities.csproj.AssemblyReference.cache
+D:\Devsource\ENBH.HospitalManagement\HospitalManagement.Entities\obj\Debug\HospitalManagement.Entities.csproj.CoreCompileInputs.cache
+D:\Devsource\ENBH.HospitalManagement\HospitalManagement.Entities\bin\Debug\HospitalManagement.Entities.dll
+D:\Devsource\ENBH.HospitalManagement\HospitalManagement.Entities\bin\Debug\HospitalManagement.Entities.pdb
+D:\Devsource\ENBH.HospitalManagement\HospitalManagement.Entities\bin\Debug\HospitalManagement.Infrastructure.dll
+D:\Devsource\ENBH.HospitalManagement\HospitalManagement.Entities\bin\Debug\HospitalManagement.Infrastructure.pdb
+D:\Devsource\ENBH.HospitalManagement\HospitalManagement.Entities\obj\Debug\HospitalManagement.Entities.csproj.CopyComplete
+D:\Devsource\ENBH.HospitalManagement\HospitalManagement.Entities\obj\Debug\HospitalManagement.Entities.dll
+D:\Devsource\ENBH.HospitalManagement\HospitalManagement.Entities\obj\Debug\HospitalManagement.Entities.pdb

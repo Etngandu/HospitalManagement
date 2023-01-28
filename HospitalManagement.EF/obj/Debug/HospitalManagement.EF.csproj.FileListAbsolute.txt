@@ -1,0 +1,16 @@
+D:\Devsource\ENBH.HospitalManagement\HospitalManagement.EF\obj\Debug\HospitalManagement.EF.csproj.AssemblyReference.cache
+D:\Devsource\ENBH.HospitalManagement\HospitalManagement.EF\obj\Debug\HospitalManagement.EF.csproj.CoreCompileInputs.cache
+D:\Devsource\ENBH.HospitalManagement\HospitalManagement.EF\bin\Debug\HospitalManagement.EF.dll.config
+D:\Devsource\ENBH.HospitalManagement\HospitalManagement.EF\bin\Debug\HospitalManagement.EF.dll
+D:\Devsource\ENBH.HospitalManagement\HospitalManagement.EF\bin\Debug\HospitalManagement.EF.pdb
+D:\Devsource\ENBH.HospitalManagement\HospitalManagement.EF\bin\Debug\EntityFramework.dll
+D:\Devsource\ENBH.HospitalManagement\HospitalManagement.EF\bin\Debug\EntityFramework.SqlServer.dll
+D:\Devsource\ENBH.HospitalManagement\HospitalManagement.EF\bin\Debug\HospitalManagement.Entities.dll
+D:\Devsource\ENBH.HospitalManagement\HospitalManagement.EF\bin\Debug\HospitalManagement.Infrastructure.dll
+D:\Devsource\ENBH.HospitalManagement\HospitalManagement.EF\bin\Debug\HospitalManagement.Entities.pdb
+D:\Devsource\ENBH.HospitalManagement\HospitalManagement.EF\bin\Debug\HospitalManagement.Infrastructure.pdb
+D:\Devsource\ENBH.HospitalManagement\HospitalManagement.EF\bin\Debug\EntityFramework.xml
+D:\Devsource\ENBH.HospitalManagement\HospitalManagement.EF\bin\Debug\EntityFramework.SqlServer.xml
+D:\Devsource\ENBH.HospitalManagement\HospitalManagement.EF\obj\Debug\HospitalManagement.EF.csproj.CopyComplete
+D:\Devsource\ENBH.HospitalManagement\HospitalManagement.EF\obj\Debug\HospitalManagement.EF.dll
+D:\Devsource\ENBH.HospitalManagement\HospitalManagement.EF\obj\Debug\HospitalManagement.EF.pdb

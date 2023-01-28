@@ -1,0 +1,123 @@
+﻿@using ENB.HospitalManagement.Entities;
+@model ENB.HospitalManagement.Mvc.Models.PagerModel<ENB.HospitalManagement.Mvc.Models.DisplayPatient>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmission.cshtml";
+}
+
+<br />
+<div class="alert alert-info" role="alert">
+    <h2><strong>Admission Dashboard</strong></h2>
+</div>
+
+@if (Model.Data.Any())
+{
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="#" class="navbar-brand"></a>
+            </div>
+            <div class="collapse navbar-collapse">
+                @using (Html.BeginForm("Index", "Lawyer", FormMethod.Get, new { @class = "navbar-form navbar-left" }))
+                {
+                    <div class="form-group">
+                        <input type="text" name="search" value="@ViewBag.search" class="form-control" placeholder="search" />
+                    </div>
+                    <button type="submit" value="Search" class="btn btn-success">
+                        <span class="glyphicon glyphicon-search"></span>  Search
+                    </button>
+                }
+            </div>
+        </div>
+    </nav>
+
+
+
+
+    var grid = new WebGrid(null, defaultSort: "FullName", columnNames: new[] { "Id", "FullName", "Date_Of_Birth", "Hospital_Number", "Gender" }, rowsPerPage: Model.PageSize);
+    grid.Bind(Model.Data, rowCount: Model.TotalRows, autoSortAndPage: false);
+
+    <style type="text/css">
+
+        /*Here we will add css for style webgrid*/
+
+        .webgrid-table {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            font-size: 1.2em;
+            width: 100%;
+            display: table;
+            border-collapse: separate;
+            border: solid 1px #1C2833;
+            background-color: white;
+        }
+
+            .webgrid-table td, th {
+                border: 1px solid #1C2833;
+                padding: 3px 7px 2px;
+            }
+
+        .webgrid-header {
+            background-color: #1C2833;
+            color: #FFFFFF;
+            padding-bottom: 4px;
+            padding-top: 5px;
+            text-align: left;
+        }
+
+        .webgrid-footer {
+        }
+
+        .webgrid-row-style {
+            padding: 3px 7px 2px;
+        }
+
+        .webgrid-alternating-row {
+            background-color: #EAF2D3;
+            padding: 3px 7px 2px;
+        }
+    </style>
+
+
+
+
+    @grid.GetHtml(
+    htmlAttributes: new
+    {
+        id = "gridMapping"
+    },
+    tableStyle: "webgrid-table", //"table table-bordered",
+    headerStyle: "webgrid-header",// "info",
+    footerStyle: "webgrid-footer",
+    alternatingRowStyle: "webgrid-alternating-row",
+    selectedRowStyle: "webgrid-selected-row",
+    rowStyle: "gridrow",
+
+
+
+
+
+    columns: grid.Columns(
+   grid.Column("Id"),
+   grid.Column(header: "Full Name", columnName: "FullName", format: (item) => Html.ActionLink(((string)item.FullName), "Details", new { item.id })),
+   grid.Column("Date_Of_Birth", header: "Date of Birth", format: (item) => item.Date_Of_Birth.ToString("d")),
+   grid.Column("Hospital_Number", canSort: false, format: (item) => item.Hospital_Number.ToString().Replace("_", " ")),
+   grid.Column("Gender", canSort: false, format: (item) => item.Gender.ToString().Replace("_", " ")),
+   grid.Column(header: "Edit", format: (item) => Html.ActionLink(" ", "Edit", new { item.id }, new { @class = "glyphicon glyphicon-edit" })),
+   grid.Column(header: "Delete", format: (item) => Html.ActionLink(" ", "Delete", new { item.id }, new { @class = "glyphicon glyphicon-trash" })),
+   grid.Column(header: "Link to Cases", format: item => new HtmlString(
+                Html.ActionLink("Link", "CList", "LawyerOnCases", new { LawyerId = item.Id }, null).ToString()))
+)
+)
+}
+else
+{
+    <p>No Lawyer found.</p>
+}
+<br />
+<p>
+    <input type="button" class="btn btn-success" value="Add new Patient" onclick="location.href='@Url.Action("Create", "Lawyer")'" />
+
+</p>
+
+

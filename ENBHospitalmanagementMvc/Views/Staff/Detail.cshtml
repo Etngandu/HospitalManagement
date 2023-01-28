@@ -1,0 +1,91 @@
+﻿@model ENBHospitalmanagementMvc.Models.DisplayStaff
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_LayoutPatient.cshtml";
+}
+
+<div class="alert alert-info" role="alert">
+    <h2><strong>Detail Staff-member @ViewBag.Message</strong></h2>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Staff_first_name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Staff_first_name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Staff_last_name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Staff_last_name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.EmailAddressText)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.EmailAddressText)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Staff_birth_date)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Staff_birth_date)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Other_staff_details)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Other_staff_details)
+            </dd>
+        </dl>
+    </div>
+    <div class="col-md-6">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.DateCreated)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DateCreated)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DateModified)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DateModified)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ImagePath)
+            </dt>
+
+            <dd>
+                @*@Html.DisplayFor(model => model.ImagePath)*@
+                <img src="@Url.Content(Model.ImagePath)" style="margin:10px" height="200" width="200" id="imagepreview" />
+                @*<input type="file" name="ImageUpload" accept="image/jpeg, image/png" onchange="ShowImagePreview(this,document.getElementById('imagepreview'))" />*@
+            </dd>
+
+
+
+        </dl>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

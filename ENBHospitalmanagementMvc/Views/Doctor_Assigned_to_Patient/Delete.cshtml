@@ -1,0 +1,57 @@
+﻿@model ENBHospitalmanagementMvc.Models.DisplayDoctor_Assigned_to_Patient
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmission.cshtml";
+}
+
+<div class="alert alert-danger" role="alert">
+    <h2><strong>Do you really want to delete this</strong></h2>
+</div>
+
+@using (Html.BeginForm("Delete", "Doctor_Assigned_to_Patient", FormMethod.Post, new { onsubmit = "return SubmitForm(this);" }))
+{
+    @Html.Hidden("patient_Id", Model.Patient_Id)
+    @Html.HiddenFor(model => model.Id)
+    <div>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Patient_Id)
+            </dt>
+
+            <dd>
+                @ViewBag.Message
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Staff_Id)
+            </dt>
+
+            <dd>
+                @ViewBag.Staff
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Date_Ass_from)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Date_Ass_from)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Date_Ass_to)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Date_Ass_to)
+            </dd>
+
+        </dl>
+    </div>
+    <div class="form-group">
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" />
+        </div>
+    </div>    
+}

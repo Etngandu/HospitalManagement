@@ -1,0 +1,128 @@
+﻿@model ENBASEHospitalManagementMvc.Models.DisplayPatient
+
+@{
+    ViewBag.Title = "Detail";
+}
+
+<div class="alert alert-info" role="alert">
+    <h2><strong>Detail + @ViewBag.Message</strong></h2>
+</div>
+
+<div class="row">    
+        <div class="col-md-6">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Patient_first_name):
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Patient_first_name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Patient_last_name):
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Patient_last_name)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Outpatient_yn) :
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Outpatient_yn)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Hospital_Number) :
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Hospital_Number)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.nhs_number) :
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.nhs_number)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Date_Of_Birth) :
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Date_Of_Birth)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Height):
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Height)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Weight):
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Weight)
+                </dd>
+            </dl>
+        </div>
+    
+    <div class="col-md-6">
+        <dl class="dl-horizontal">           
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Next_of_kin):
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Next_of_kin)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Home_phone):
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Home_phone)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Work_phone):
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Work_phone)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Cell_Mobile_phone):
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Cell_Mobile_phone)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Other_patient_details):
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Other_patient_details)
+            </dd>
+
+        </dl>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

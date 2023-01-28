@@ -1,0 +1,54 @@
+﻿@model ENBASEHospitalManagementMvc.Models.DisplayBed
+
+@{
+    ViewBag.Title = "Delete";
+    //Layout = "~/Views/Shared/_LayoutPatient.cshtml";
+}
+
+<div class="alert alert-danger" role="alert">
+    <h2><strong>Do you really want du delete this</strong></h2>
+</div>
+
+@using (Html.BeginForm("Delete", "Bed", FormMethod.Post, new { onsubmit = "return SubmitForm(this);" }))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.WardId)
+    @Html.HiddenFor(model => model.Id)
+    <div>
+        <h4>DisplayBed</h4>
+        <hr />
+        <dl class="dl-horizontal">
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Bed_Number)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Bed_Number)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Bed_Location)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Bed_Location)
+            </dd>
+
+        </dl>
+    </div>
+
+    <div class="form-group">
+        @*<div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="reset" value="Reset" class="btn btn-warning" />
+            </div>*@
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" />
+        </div>
+    </div>
+</div>
+}

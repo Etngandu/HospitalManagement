@@ -1,0 +1,34 @@
+﻿@model ENBHospitalmanagementMvc.Models.CreateAndEditBed
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutPatient.cshtml";
+}
+
+<div class="alert alert-info" role="alert">
+    <h2><strong><i class="fa fa-bed"></i>Edit  Bed</strong></h2>
+</div>
+
+
+
+
+
+@using (Html.BeginForm("Edit", "Bed", FormMethod.Post, new { onsubmit = "return SubmitForm(this);" }))
+{
+    @*@Html.AntiForgeryToken()*@
+
+<div class="form-horizontal">
+    @Html.ValidationSummary(true)
+    @Html.Partial("_CreateOrEdit", Model)
+    @Html.Hidden("Id", Model.Id)
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-primary" />
+            <input type="reset" value="Reset" class="btn btn-warning" />
+        </div>
+    </div>
+</div>
+}
+
+
